@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Project Skills with stc"
+  short_description: "Discover, plan, and install project Skills safely"
+  default_prompt: "Use $manage-project-skills-with-stc to recommend a focused Skill set for this project and install it after I approve the exact plan."
