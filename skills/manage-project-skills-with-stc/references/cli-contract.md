@@ -7,9 +7,11 @@ stc scan <path> --remote 20 --json --no-interactive
 stc find <query> --json --no-interactive
 ```
 
-`scan --remote` sends only public tokens derived from stc's built-in signal dictionary. Read `remote.recommendations[].entry` for `source`, `skill`, `name`, `installs`, and stable provider identity. Use `primarySignal` and `scenario` as explanations, not as installation authority.
+`scan --remote` sends only public tokens derived from stc's built-in signal dictionary. It rebuilds signals from current project state on every run. Read `remote.recommendations[].entry` for `source`, `skill`, `name`, `installs`, and stable provider identity. Read `role` (`framework`, `component`, or `engineering`), `primarySignal`, and `scenario` as baseline explanations, not as installation authority.
 
-`find --json` requires a query. Search concrete technologies or tasks; never send absolute paths, repository names, private package names, source code, or document text.
+`remote.page` describes the returned JSON batch. Interactive scans retain a larger finite candidate pool and allow unlimited `Next batch` / `换一批` actions, wrapping to the first batch after every unique candidate has been shown. JSON intentionally omits the hidden candidate pool; use targeted `find` queries when semantic analysis needs broader framework or component coverage.
+
+`find --json` requires a query. Search every detected core framework and actual component, plus important tasks that need better coverage. Never send absolute paths, repository names, private package names, source code, or document text.
 
 ## Read-only inspection
 
