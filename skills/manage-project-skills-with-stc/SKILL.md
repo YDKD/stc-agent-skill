@@ -27,6 +27,12 @@ Read [references/cli-contract.md](references/cli-contract.md) before invoking co
 9. Present one exact plan containing Skill name, source, target registry, conflicts, project evidence, responsibility, and excluded alternatives.
 10. Stop and request confirmation for that exact plan.
 
+## Guide an Interactive Scan
+
+Use interactive `stc scan <path>` only when a human is operating the TUI. Treat recommended entries as ranked suggestions, never as selected Skills. Keep the local candidate and manual-search branches independent; after either branch is confirmed, review only the explicit selection before choosing an action.
+
+With `--remote`, allow multiple selections and preserve them across batches and branch re-entry. `Esc` returns to the source chooser instead of accepting or discarding the selection. Treat the final screen as an outcome report: checked items alone are not a completed action, and interrupted, no-selection, unapplied-selection, bookmark, install, and project-update outcomes remain distinct.
+
 ## Apply an Approved Plan
 
 Treat approval as scoped to the identities and actions shown in the plan. After approval, run `stc add <source> --skill <name> -y --json` for each unchanged plan item. If a fresh dry-run differs, stop and explain the change.

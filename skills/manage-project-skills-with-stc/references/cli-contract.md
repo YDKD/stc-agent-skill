@@ -13,6 +13,14 @@ stc find <query> --json --no-interactive
 
 `find --json` requires a query. Search every detected core framework and actual component, plus important tasks that need better coverage. Never send absolute paths, repository names, private package names, source code, or document text.
 
+### Interactive scan state
+
+Interactive `scan` uses explicit selection state. Recommended candidates are highlighted and ordered first, but they are not selected automatically. The local-candidate and manual-search branches maintain only the Skills the user explicitly checks, then proceed to a shared review/action step without merging unconfirmed recommendations.
+
+Interactive `scan --remote` supports multiple checked Skills per batch and retains checked Skills across `Next batch` actions and source-branch re-entry. `Esc` from a remote candidate or action screen returns to the local/remote source chooser. Skills from the same source are combined into one installation plan; different sources remain separate plans.
+
+The final interactive result summarizes completed side effects, not transient checkmarks. It distinguishes interruption, cancellation with no selection, selection without an applied action, bookmark creation, registry installation, and project-state changes. Do not interpret a checked or reviewed Skill as installed unless the result reports the installation.
+
 ## Read-only inspection
 
 ```bash
